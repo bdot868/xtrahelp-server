@@ -12,11 +12,19 @@ const
   request = require('request'),
   mongoUrl = process.env.MONGO_URL || 'mongodb://localhost/XtraHelp',
   port = process.env.PORT || 3001
+  const connectionString = "  mongodb+srv://bdot868:mongoP@$$vv0rd@cluster0.dkx4q.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
-  // connect to mongodb;
-  mongoose.connect(mongoUrl, (err) => {
-    console.log(err ||'Connected to MongoDB 🤘🏽');
-  })
+
+    // connect to mongodb;
+    mongoose.connect(connectionString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    })
+      .then(() => {
+        console.log('Connected to MongoDB 🤘🏽');
+      })
+      .catch(err => console.log(err))
+
 
   //Log all incoming requests to the console
   app.use(logger('dev'))
@@ -25,13 +33,16 @@ const
   app.use(cors())
 
   //Interpret bodies of data that are included in requests:
-  app.use(bodyParser.json()) //interpret json bodies
   app.use(bodyParser.urlencoded({extended: false})) //interpret form data
+  app.use(bodyParser.json()) //interpret json bodies
+
 
 
   //server root route:
-  app.get('/', function (req,res) {
-    res.json({message: "Server root. All API routes start with Xtra Help"});
+  app.use(express.static('client/build'));
+
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
   });
 
   app.use('/xtrahelp/api/users', usersRoutes)

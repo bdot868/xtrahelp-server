@@ -1,0 +1,27 @@
+.nav-bar {
+  padding: 15px 0;
+  background: #fff !important
+}
+.white-font {
+  color: #fff
+}
+
+.hmpage-flip-img {
+  height: 28em !important;
+}
+.right-sidebar,
+.left-sidebar {
+  position: sticky;
+  top: 0;
+}
+
+
+.vetted {
+  padding: 40px 0;
+  background: #F3F3F3
+}
+
+.footer {
+  /* position: absolute;
+  bottom: 0; */
+}

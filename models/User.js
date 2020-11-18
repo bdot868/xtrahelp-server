@@ -2,7 +2,7 @@ const
   mongoose = require('mongoose'),
   bcrypt = require('bcrypt-nodejs'),
   userSchema = new mongoose.Schema({
-    name: String,
+    firstName: String,
     email: String,
 
     //when 'select' is set to false, this field
