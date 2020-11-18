@@ -1,7 +1,8 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-axios.defaults.baseURL = "http://localhost:3001/xtrahelp"
+// axios.defaults.baseURL = "http://localhost:3001/xtrahelp"
+axios.defaults.baseURL = "https://xtrahelp-server.herokuapp.com"
 
 const clientAuth = {
 

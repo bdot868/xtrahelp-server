@@ -45,8 +45,8 @@ const
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
   });
 
-  app.use('/xtrahelp/api/users', usersRoutes)
-  app.use('/xtrahelp/api/caregivers', caregiversRoutes)
+  app.use('/api/users', usersRoutes)
+  app.use('/api/caregivers', caregiversRoutes)
   // app.use('/api/bookings', bookingRoutes)
 
   app.listen(port, (err) => {
